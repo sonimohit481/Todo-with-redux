@@ -4,7 +4,7 @@ const initialState = {
   todos: [
     {
       id: 1,
-      title: "Hellop",
+      title: "Welcome to todo",
       completed: false,
     },
   ],

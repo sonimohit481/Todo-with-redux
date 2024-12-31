@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../features/todo/todoSlice";
+import { addTodo } from "../features/todoSlice";
 
 function AddTodo() {
   const [input, setInput] = useState("");
@@ -8,24 +8,27 @@ function AddTodo() {
 
   const addTodoHandler = (e) => {
     e.preventDefault();
-    dispatch(addTodo(input));
-    setInput("");
+    if (input.trim()) {
+      dispatch(addTodo(input));
+      setInput("");
+    }
   };
 
   return (
-    <form onSubmit={addTodoHandler} className="space-x-3 mt-12">
+    <form onSubmit={addTodoHandler} className="flex flex-row  items-center  ">
       <input
         type="text"
-        className="bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-        placeholder="Enter a Todo..."
+        className="flex-1 bg-gray-200 rounded border border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-400 text-base outline-none text-gray-800 py-2 px-4 transition-colors duration-200 ease-in-out"
+        placeholder="Enter a todo..."
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
       <button
         type="submit"
-        className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+        className="text-white ml-5  bg-teal-500 hover:bg-teal-600 border-0 py-2 px-6 rounded-lg transition-colors duration-200 ease-in-out"
       >
-        Add Todo
+        <span className="block sm:hidden">+</span>
+        <span className="hidden sm:block">Add Todo</span>
       </button>
     </form>
   );
