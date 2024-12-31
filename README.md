@@ -1,6 +1,6 @@
 # Todo with Redux
 
-![Banner](https://github.com/sonimohit481/Todo-with-redux/blob/main/public/banner.png)
+![Banner](https://github.com/sonimohit481/Todo-with-redux/blob/main/public/Banner.png)
 
 ## Description
 
